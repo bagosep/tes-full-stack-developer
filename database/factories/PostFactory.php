@@ -16,14 +16,11 @@ class PostFactory extends Factory
 
     public function definition()
     {
-        $title = $this->faker->sentence;
-        $slug = Str::slug($title, '-');
         $users = User::pluck('id')->toArray();
 
         return [
             'user_id' => $this->faker->randomElement($users),
-            'title' => $title,
-            'slug' => $slug,
+            'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph()
         ];
     }
